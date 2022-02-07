@@ -15,7 +15,19 @@ add_action('wp_enqueue_scripts', 'simplenews_enqueue_styles');
 //Support de thème
 function simplenews_add_theme_support(){
 
-    add_theme_support('post-thumbnails');
+    add_theme_support('post-thumbnails'); //Ajoute les thumbnails dans le theme
+
+    add_theme_support('title-tag'); //change le title de l'onglet 
 }
 add_action('after_setup_theme', 'simplenews_add_theme_support');
+
+//Déclarer les menu de navigation
+function simplenews_register_menus(){
+
+    register_nav_menus(array(
+        'main-menu' => __('Menu principal') //Localisation __ 
+    ));
+
+}
+add_action('after_setup_theme', 'simplenews_register_menus');
 ?>

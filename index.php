@@ -1,5 +1,17 @@
 <?php get_header(); ?>
+
+    <?php if(is_archive()) :  ?>
+
+        <h2><?php echo esc_html (get_the_category()[0]->name) ?></h2>    
+    
+    <?php else : ?>
+    
         <h2>Accueil</h2>
+    
+    <?php endif; ?>
+
+
+
         <div class="flex">
             <section class="trois-quart">
 
@@ -19,7 +31,7 @@
                     </div>
                     <div class="texte-article trois-quart">
                         <h3><?php the_title(); ?></h3>
-                        <p><?php the_content();?></p>
+                        <p><?php the_excerpt();?> <a href="<?php the_permalink(); ?>">En savoir plus...</a> </p>
                     </div>
                 </article>
 
